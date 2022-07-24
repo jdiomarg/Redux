@@ -14,7 +14,7 @@ const RickMorty = () => {
     const [characters, setCharacters] = useState([]);
     const [locations, setLocations] = useState([]);
     const [characterSearch, setCharacterSearch] = useState("")
-    const [users, setUsers] = useState(characters.slice(0, 3));
+    const [users, setUsers] = useState(characters?.slice(0, 3));
     const [pageNumber, setPageNumber] = useState(0);
 
     const navigate = useNavigate();
