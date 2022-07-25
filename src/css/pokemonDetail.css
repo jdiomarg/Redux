@@ -1,0 +1,136 @@
+.pokeDetail {
+  height: 100vh;
+  background-image: url("src/assets/pokeball_Background.gif");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  width: 100%;
+}
+
+.detailCard {
+  margin-top: 100px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 20px;
+  background-color: rgba(34, 34, 34, 0.9);
+  width: 60%;
+  height: auto;
+  color: white;
+}
+
+.cardWeight {
+  width: auto;
+  height: 25px;
+  margin-top: 10px;
+  padding: 10px 20px;
+  text-align: center;
+  /* background-image: linear-gradient(rgb(185, 185, 185) 70%, rgb(102, 102, 102)); */
+  color: rgba(48, 48, 48, 0.8);
+  /* box-shadow: 3px 3px 4px rgba(15, 12, 12, 1); */
+  border-radius: 4px;
+}
+
+.buttonHp {
+  width: auto;
+  height: 25px;
+  margin-top: 10px;
+  padding: 10px 20px;
+  text-align: center;
+  /* background-image: linear-gradient(rgb(185, 185, 185) 70%, rgb(102, 102, 102)); */
+  color: rgba(48, 48, 48, 0.8);
+  /* box-shadow: 3px 3px 4px rgba(15, 12, 12, 1); */
+  border-radius: 4px;
+}
+
+.buttonATT {
+  width: auto;
+  height: 25px;
+  margin-top: 10px;
+  padding: 10px 20px;
+  text-align: center;
+  /* background-image: linear-gradient(rgb(185, 185, 185) 70%, rgb(102, 102, 102)); */
+  color: rgba(48, 48, 48, 0.8);
+  /* box-shadow: 3px 3px 4px rgba(15, 12, 12, 1); */
+  border-radius: 4px;
+}
+
+.buttonDEF {
+  width: auto;
+  height: 25px;
+  margin-top: -10px;
+  padding: 10px 20px;
+  text-align: center;
+  /* background-image: linear-gradient(rgb(185, 185, 185) 70%, rgb(102, 102, 102)); */
+  color: rgba(48, 48, 48, 0.8);
+  /* box-shadow: 3px 3px 4px rgba(15, 12, 12, 1); */
+  border-radius: 4px;
+}
+
+.buttonSPA {
+  width: auto;
+  height: 25px;
+  margin-top: -10px;
+  padding: 10px 20px;
+  text-align: center;
+  /* background-image: linear-gradient(rgb(185, 185, 185) 70%, rgb(102, 102, 102)); */
+  color: rgba(48, 48, 48, 0.8);
+  /* box-shadow: 3px 3px 4px rgba(15, 12, 12, 1); */
+  border-radius: 4px;
+}
+
+.buttonSPD {
+  width: auto;
+  height: 25px;
+  margin-top: -10px;
+  padding: 10px 20px;
+  text-align: center;
+  /* background-image: linear-gradient(rgb(185, 185, 185) 70%, rgb(102, 102, 102)); */
+  color: rgba(48, 48, 48, 0.8);
+  /* box-shadow: 3px 3px 4px rgba(15, 12, 12, 1); */
+  border-radius: 4px;
+}
+
+.buttonSP {
+  width: auto;
+  height: 25px;
+  margin-top: -10px;
+  padding: 10px 20px;
+  text-align: center;
+  /* background-image: linear-gradient(rgb(185, 185, 185) 70%, rgb(102, 102, 102)); */
+  color: rgba(48, 48, 48, 0.8);
+  /* box-shadow: 3px 3px 4px rgba(15, 12, 12, 1); */
+  border-radius: 4px;
+}
+
+.Stat1 {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  justify-items: center;
+  margin-top: 40px;
+  margin-bottom: 40px;
+  padding-top: 20px;
+  background-color: firebrick;
+  padding-top: 60px;
+  padding-bottom: 60px;
+  color: white;
+}
+
+i {
+  width: 40%;
+  margin-left: 20px;
+  font-size: 1.5rem;
+  text-align: center;
+}
+
+.Stat2 {
+  display: flex;
+  flex-wrap: wrap;
+  height: 280px;
+  width: 100%;
+  padding-bottom: 60px;
+  padding-top: 60px;
+  margin-bottom: 0px;
+  background-image: url("src/assets/pokeSplash2.gif");
+}

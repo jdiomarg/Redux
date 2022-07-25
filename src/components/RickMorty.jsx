@@ -4,21 +4,22 @@ import { useState } from "react";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import CharacterItem from "./CharacterItem";
-import { useParams } from "react-router-dom";
+// import { useParams } from "react-router-dom";
 import ReactPaginate from "react-paginate";
 import "../css/pokedex.css"
 
 const RickMorty = () => {
+
     const user = useSelector((state) => state.user);
 
     const [characters, setCharacters] = useState([]);
-    const [locations, setLocations] = useState([]);
+    const [types, setTypes] = useState([]);
     const [characterSearch, setCharacterSearch] = useState("")
     const [users, setUsers] = useState(characters?.slice(0, 3));
     const [pageNumber, setPageNumber] = useState(0);
 
     const navigate = useNavigate();
-    const { id } = useParams();
+    // const { id } = useParams();
 
     useEffect(() => {
         axios
@@ -26,7 +27,7 @@ const RickMorty = () => {
             .then((res) => setCharacters(res.data.results));
 
         axios.get("https://pokeapi.co/api/v2/type/")
-            .then((res) => setLocations(res.data.results))
+            .then(res => setTypes(res.data.results))
 
         axios
             .get("https://pokeapi.co/api/v2/pokemon/?limit=1154&offset=0")
@@ -34,7 +35,7 @@ const RickMorty = () => {
     }, []);
 
     // console.log(characters);
-    console.log(users);
+    console.log(types);
 
 
     const search = (e) => {
@@ -43,10 +44,14 @@ const RickMorty = () => {
     }
 
 
-    const filterLocation = (e) => {
-        alert(e.target.value + " selected")
-        axios.get(e.target.value)
-            .then(res => setCharacters(res.data.results));
+    const filterTypes = (e) => {
+        if (e.target.value !== "all") {
+            axios.get(e.target.value)
+                .then(res => setCharacters(res.data.pokemon));
+        } else {
+            axios.get("https://pokeapi.co/api/v2/pokemon/?limit=1154&offset=0")
+                .then((res) => setCharacters(res.data.results));
+        }
     }
 
     //   Paginate
@@ -54,17 +59,15 @@ const RickMorty = () => {
     const usersPerPage = 8;
     const pagesVisited = pageNumber * usersPerPage;
 
-    const displayUsers = users
-        .slice(pagesVisited, pagesVisited + usersPerPage)
-        .map((user) => {
-            return (
-                <div style={{ paddingLeft: "0px", marginTop: "80px", marginBottom: "-50px" }} key={user.id} className="user">
-                    <CharacterItem characterUrl={user.url ? user.url : user} key={user.name ? user.name : user} />
-                </div>
-            );
-        });
+    const displayUsers = users?.slice(pagesVisited, pagesVisited + usersPerPage).map((user) => {
+        return (
+            <div style={{ paddingLeft: "0px", marginTop: "80px", marginBottom: "-50px" }} key={user.id} className="user">
+                <CharacterItem characterUrl={user.url ? user.url : user} key={user.name ? user.name : user} />
+            </div>
+        );
+    });
 
-    const pageCount = Math.ceil(users.length / usersPerPage);
+    const pageCount = Math.ceil(users?.length / usersPerPage);
 
     const changePage = ({ selected }) => {
         setPageNumber(selected);
@@ -82,17 +85,18 @@ const RickMorty = () => {
                         className="searchBox"
                         value={characterSearch}
                         name="txt"
+                        placeholder="Search..."
                         onChange={(e) => setCharacterSearch(e.target.value)}
                     />
                     <button value={characterSearch} onClick={(e) => setCharacterSearch(e.target.value)} id="search" className="fas fa-search"></button>
                 </form>
             </div>
             <div style={{ marginBottom: "-40px" }}>
-                <select className="select" onChange={filterLocation}>
-                    <option value="">Select a category</option>
+                <select className="select" onChange={filterTypes}>
+                    <option value="all">All Pokemons</option>
                     {
-                        locations?.map(location => (
-                            <option value={location.url} key={location.url ? location.url : location}>{location.name}</option>
+                        types?.map(type => (
+                            <option value={type.url} key={type.url ? type.url : type}>{type.name}</option>
                         ))
                     }
                 </select>
