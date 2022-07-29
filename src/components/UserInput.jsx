@@ -21,7 +21,7 @@ const UserInput = () => {
     const submit = (e) => {
         e.preventDefault();
         dispatch(changeUser(userName));
-        navigate("/rickmorty");
+        navigate("/pokedex");
     };
 
     return (

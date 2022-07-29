@@ -54,8 +54,9 @@ const CharacterItem = ({ characterUrl }) => {
 
     const submit = (e) => {
         e.preventDefault();
-        navigate(`/rickmorty/${character.id}`);
+        navigate(`/pokedex/${character.id}`);
     };
+
 
     return (
         <div className="pokemonCard" >

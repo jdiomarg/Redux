@@ -15,7 +15,7 @@ const SplashScreen = () => {
 
     return (
         <div className='loadingScreen' style={{ textalign: "center" }}>
-            <div>
+            <div className='topBrand'>
                 <img className='pokeTitle' src="src/assets/pokeTitle.gif" alt="" />
                 <img className='subTitle' src="src/assets/Pokédex_3D_logo.png" alt="" />
             </div>

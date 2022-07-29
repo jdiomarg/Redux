@@ -4,11 +4,10 @@ import { useState } from "react";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import CharacterItem from "./CharacterItem";
-// import { useParams } from "react-router-dom";
 import ReactPaginate from "react-paginate";
 import "../css/pokedex.css"
 
-const RickMorty = () => {
+const Pokedex = () => {
 
     const user = useSelector((state) => state.user);
 
@@ -19,11 +18,10 @@ const RickMorty = () => {
     const [pageNumber, setPageNumber] = useState(0);
 
     const navigate = useNavigate();
-    // const { id } = useParams();
 
     useEffect(() => {
         axios
-            .get("https://pokeapi.co/api/v2/pokemon/")
+            .get("https://pokeapi.co/api/v2/pokemon/?limit=1154&offset=0")
             .then((res) => setCharacters(res.data.results));
 
         axios.get("https://pokeapi.co/api/v2/type/")
@@ -34,18 +32,19 @@ const RickMorty = () => {
             .then((res) => setUsers(res.data.results));
     }, []);
 
-    // console.log(characters);
-    console.log(types);
-
 
     const search = (e) => {
         e.preventDefault();
         navigate(`/rickmorty/${characterSearch}`)
     }
 
+    // const filterTypes = e => {
+    //     axios.get(e.target.value)
+    //         .then(res => setCharacters(res.data.pokemon));
+    // }
 
     const filterTypes = (e) => {
-        if (e.target.value !== "all") {
+        if (e.target.value !== "All") {
             axios.get(e.target.value)
                 .then(res => setCharacters(res.data.pokemon));
         } else {
@@ -54,18 +53,21 @@ const RickMorty = () => {
         }
     }
 
+    console.log(characters);
+
     //   Paginate
 
-    const usersPerPage = 8;
+    const usersPerPage = 10;
     const pagesVisited = pageNumber * usersPerPage;
 
-    const displayUsers = users?.slice(pagesVisited, pagesVisited + usersPerPage).map((user) => {
+    const displayUsers = characters?.slice(pagesVisited, pagesVisited + usersPerPage).map((character) => {
         return (
-            <div style={{ paddingLeft: "0px", marginTop: "80px", marginBottom: "-50px" }} key={user.id} className="user">
-                <CharacterItem characterUrl={user.url ? user.url : user} key={user.name ? user.name : user} />
+            <div style={{ paddingLeft: "0px", marginTop: "80px", marginBottom: "-50px" }} key={character.id} className="user">
+                <CharacterItem characterUrl={character.url ? character.url : character} key={character.name ? character.name : character} />
             </div>
         );
     });
+
 
     const pageCount = Math.ceil(users?.length / usersPerPage);
 
@@ -77,7 +79,7 @@ const RickMorty = () => {
         <div className="pokedex">
             <img className="subTitleMain" src="src/assets/Pokédex_3D_logo.png" alt="" />
             <div className="welcomeMessage">
-                <h1 style={{ marginbottom: "0px" }}>Welcome <b style={{ color: "red" }}>{user},</b></h1> <br></br><p style={{ fontSize: "0.9rem", marginTop: "-40px" }}> here you can find your favorite Pokemon!</p>
+                <h1 style={{ marginbottom: "0px" }}>Welcome <b style={{ color: "red" }}>{user},</b></h1> <br></br><p className="welcomeMessage" style={{ marginTop: "-40px" }}> here you can find your favorite Pokemon!</p>
             </div>
             <div className="box">
                 <form className="search" onSubmit={search}>
@@ -88,27 +90,27 @@ const RickMorty = () => {
                         placeholder="Search..."
                         onChange={(e) => setCharacterSearch(e.target.value)}
                     />
-                    <button value={characterSearch} onClick={(e) => setCharacterSearch(e.target.value)} id="search" className="fas fa-search"></button>
+                    <button value={characterSearch} onClick={(e) => setCharacterSearch(e.target?.value)} id="search" className="fas fa-search"></button>
                 </form>
             </div>
             <div style={{ marginBottom: "-40px" }}>
+
                 <select className="select" onChange={filterTypes}>
-                    <option value="all">All Pokemons</option>
-                    {
-                        types?.map(type => (
-                            <option value={type.url} key={type.url ? type.url : type}>{type.name}</option>
-                        ))
-                    }
+                    <option value="All">All Pokemons</option>
+                    {types.map((type) => (
+                        <option value={type.url} key={type.name}>
+                            {type.name}
+                        </option>
+                    ))}
                 </select>
+
             </div>
 
-            {/* <ul style={{ paddingLeft: "0px", marginTop: "80px" }}>
-                {characters?.map(character => (
-                    <CharacterItem characterUrl={character.url ? character.url : character} key={character.name ? character.name : character} />
-                ))}
-            </ul> */}
-            <div className="App">
+            <div className="pokemonDisplay">
                 {displayUsers}
+            </div>
+
+            <div className="App">
                 <ReactPaginate
                     previousLabel={"Previous"}
                     nextLabel={"Next"}
@@ -125,4 +127,4 @@ const RickMorty = () => {
     );
 };
 
-export default RickMorty;
+export default Pokedex;
