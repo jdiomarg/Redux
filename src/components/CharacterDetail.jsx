@@ -25,8 +25,8 @@ const CharacterDetail = () => {
 
     return (
         <div className="pokeDetail">
-            <img className="redShape" src="src/assets/redShape-01-01.svg" style={{ width: "100%", marginTop: "0px", zIndex: "-999" }} alt="" />
-            <img className="logoDetail" src="src/assets/Pokédex_3D_logo.png" alt="" />
+            <img className="redShape" src="https://raw.githubusercontent.com/jdiomarg/Redux/a737d39927a02a4273ef9ea104bcd0602a4951e5/src/assets/redShape-01-01.svg" style={{ width: "100%", marginTop: "0px", zIndex: "-999" }} alt="" />
+            <img className="logoDetail" src="https://github.com/jdiomarg/Redux/blob/master/src/assets/Pok%C3%A9dex_3D_logo.png?raw=true" alt="" />
             <div style={{ marginLeft: "auto", marginRight: "auto", paddingBottom: "10px", borderRadius: "10px", backgroundColor: "red", width: "40%", height: "30px" }}>
                 <button onClick={() => navigate(-1)}>Go back</button>
             </div>
