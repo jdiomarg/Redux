@@ -26,7 +26,7 @@ const UserInput = () => {
 
     return (
         <div className="loginSection">
-            <img className="loginImage" src="src/assets/ash.png" alt="" />
+            <img className="loginImage" src="https://github.com/jdiomarg/Redux/blob/master/src/assets/ash.png?raw=true" alt="" />
             <form className="loginCard" onSubmit={submit}>
                 <h1 id="hello">Hello trainer!</h1>
                 <p style={{ fontSize: "0.8rem" }}>Give me your name to start this Journey</p>
