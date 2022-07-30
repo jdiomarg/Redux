@@ -1,6 +1,6 @@
 .pokeDetail {
   height: 100vh;
-  background-image: url("src/assets/pokeball_Background.gif");
+  background-image: url("https://github.com/jdiomarg/Redux/blob/master/src/assets/pokeball_Background.gif?raw=true");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -263,7 +263,7 @@ svg {
     width: 200px;
   }
   .stat0 {
-    background-image: url("src/assets/pokeSplash2.gif");
+    background-image: url("https://github.com/jdiomarg/Redux/blob/master/src/assets/pokeSplash2.gif?raw=true");
     background-repeat: no-repeat;
     background-position: -20ch;
     width: 100%;
@@ -274,7 +274,7 @@ svg {
 
 @media only screen and (max-width: 1100px) {
   .stat0 {
-    background-image: url("src/assets/pokeSplash2.gif");
+    background-image: url("https://github.com/jdiomarg/Redux/blob/master/src/assets/pokeSplash2.gif?raw=true");
     background-repeat: no-repeat;
     background-position: -10ch;
     width: 100%;
@@ -293,7 +293,7 @@ svg {
   }
 
   .stat0 {
-    background-image: url("src/assets/pokeSplash2.gif");
+    background-image: url("https://github.com/jdiomarg/Redux/blob/master/src/assets/pokeSplash2.gif?raw=true");
     background-repeat: no-repeat;
     background-position: 70ch;
     width: 100%;

@@ -77,7 +77,7 @@ const Pokedex = () => {
 
     return (
         <div className="pokedex">
-            <img className="subTitleMain" src="src/assets/Pokédex_3D_logo.png" alt="" />
+            <img className="subTitleMain" src="https://github.com/jdiomarg/Redux/blob/master/src/assets/Pok%C3%A9dex_3D_logo.png?raw=true" alt="" />
             <div className="welcomeMessage">
                 <h1 style={{ marginbottom: "0px" }}>Welcome <b style={{ color: "red" }}>{user},</b></h1> <br></br><p className="welcomeMessage" style={{ marginTop: "-40px" }}> here you can find your favorite Pokemon!</p>
             </div>
