@@ -35,7 +35,7 @@ const Pokedex = () => {
 
     const search = (e) => {
         e.preventDefault();
-        navigate(`/rickmorty/${characterSearch}`)
+        navigate(`/pokedex/${characterSearch}`)
     }
 
     // const filterTypes = e => {
